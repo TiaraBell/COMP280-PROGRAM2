@@ -4,21 +4,63 @@
  * and open the template in the editor.
  */
 
-/* 
- * File:   List.cpp
- * Author: tiara
- * 
- * Created on June 2, 2019, 4:32 PM
- */
-
+//implementation file List.cpp
 #include "List.h"
+#include <iostream>
+using namespace std;
 
 List::List() {
+
 }
 
-List::List(const List& orig) {
+bool List::Empty() {
+    //    if (N = 0) {
+    //        return true;
+    //    }
+    //    return false;
 }
 
-List::~List() {
+void List::InsertAtEnd(ElementType x) {
+    node* newptr = new node;
+    newptr->data = x;
+    newptr->next = NULL;
+
+    if (first == NULL)
+        first = newptr;
+    else if (x < first->data) {
+        newptr->next = first;
+        first = newptr;
+    }
+    else {
+        node * p = first;
+        node * q = NULL;
+        while ((p != NULL) && (p->data < x)) {
+            q = p;
+            p = p->next;
+        }
+        newptr->next = p;
+        q->next = newptr;
+    }
+
+    cout << "Value added";
 }
+
+void List::Delete(ElementType x) {
+    
+}
+
+void List::Display() {
+    
+}
+
+int List::Sum() {
+    int sum = 0;
+    return sum;
+}
+
+int List::Average() {
+    return 0;
+}
+
+
 

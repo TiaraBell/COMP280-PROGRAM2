@@ -11,17 +11,27 @@
  * Created on June 2, 2019, 4:32 PM
  */
 
-#ifndef LIST_H
-#define LIST_H
+//file: List.h 
 
-class List {
-public:
-    List();
-    List(const List& orig);
-    virtual ~List();
-private:
+typedef int ElementType;
 
+struct node{
+	ElementType data;
+	node * next;
 };
 
-#endif /* LIST_H */
+class List
+{
+ public: 
+   List(); //Create an empty list
+   bool Empty(); // return true if the list is empty, otherwise return false
+   void InsertAtEnd(ElementType x); //insert a value x on the end of the list
+   void Delete(ElementType x); //if value x is in the list, remove x
+   void Display(); //Display the data values in the list in the order inserted	
+   int Sum(); // Compute and return the sum of the values in the list
+   int Average(); // Compute and return the average of the values in the list
+
+ private:
+	node * first; //pointer to first node
+};
 
