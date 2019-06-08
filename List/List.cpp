@@ -21,6 +21,10 @@ bool List::Empty() {
     return false;
 }
 
+/*
+ * Code sampled from Linked List Part II Notes on Blackboard
+ * Slide 47
+ */
 void List::InsertAtEnd(ElementType x) {
     cout << x << endl;
     node* temp = new node;
@@ -40,7 +44,7 @@ void List::InsertAtEnd(ElementType x) {
         q->next = temp;
     }
     count++;
-    cout << "Value added";
+    cout << "Value added.";
 }
 
 void List::Delete(ElementType x) {
@@ -50,6 +54,7 @@ void List::Delete(ElementType x) {
         first = first->next;
         delete temp;
         count--;
+        cout << "Value removed.";
     } else {
         node *prev = first;
         node *current = prev->next;
@@ -61,6 +66,7 @@ void List::Delete(ElementType x) {
             prev->next = current->next;
             delete current;
             count--;
+            cout << "Value removed.";
         } else {
             cout << "Value not found.";
         }
@@ -71,11 +77,16 @@ void List::Display() {
     if (Empty() == true) {
         cout << "The list is empty. There is nothing to display.";
     } else {
-        cout << "Here are the values in your list: ";
+        cout << "List: ";
         node *current = first;
         while (current != NULL) {
-            cout << current->data << ", ";
-            current = current->next;
+            for (int i = 0; i < count; i++) {
+                if (i > 0) {
+                    cout << ", ";
+                }
+                cout << current->data;
+                current = current->next;
+            }
         }
     }
 }
@@ -91,7 +102,10 @@ int List::Sum() {
 }
 
 int List::Average() {
-    return (Sum() / count);
+    if (Empty() == false) {
+        return (Sum() / count);
+    }
+    return 0;
 }
 
 

@@ -66,12 +66,12 @@ int main(int argc, char** argv) {
                 break;
             case '4':
             {
-                cout << "This is the sum of the values in your list: " << L.Sum();
+                cout << "Sum: " << L.Sum();
             }
                 break;
             case '5':
             {
-                cout << "This is the average of the values in your list: " << L.Average();
+                cout << "Average: " << L.Average();
             }
                 break;
                 //If anything else is entered besides the current selections
