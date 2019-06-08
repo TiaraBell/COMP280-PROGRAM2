@@ -58,7 +58,6 @@ int main(int argc, char** argv) {
                 break;
             case '3':
             {
-                cout << "Here are the values in your list: ";
                 L.Display();
             }
                 break;

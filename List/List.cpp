@@ -14,6 +14,10 @@ List::List() {
 }
 
 bool List::Empty() {
+    if (first == NULL) {
+        cout << "The list is empty. Please add values.";
+        return true;
+    }
     return false;
 }
 
@@ -23,15 +27,15 @@ void List::InsertAtEnd(ElementType x) {
     newptr->data = x;
     newptr->next = NULL;
 
-    if (first == NULL)
+    if (first == NULL) {
         first = newptr;
-    else if (x < first->data) {
-        newptr->next = first;
-        first = newptr;
+//    } else if (x < first->data) {
+//        newptr->next = first;
+//        first = newptr;
     } else {
         node * p = first;
         node * q = NULL;
-        while ((p != NULL) && (p->data < x)) {
+        while ((p != NULL)) {
             q = p;
             p = p->next;
         }
@@ -47,11 +51,16 @@ void List::Delete(ElementType x) {
 }
 
 void List::Display() {
-    struct node *temp;
-    temp = first;
-    while (temp != NULL) {
-        cout << temp->data << ", ";
-        temp = temp->next;
+    if (Empty() == true) {
+        //Empty();
+    } else {
+        cout << "Here are the values in your list: ";
+        struct node *temp;
+        temp = first;
+        while (temp != NULL) {
+            cout << temp->data << ", ";
+            temp = temp->next;
+        }
     }
 }
 
