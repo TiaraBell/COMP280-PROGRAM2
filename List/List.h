@@ -12,7 +12,6 @@
  */
 
 //file: List.h 
-
 typedef int ElementType;
 
 struct node{

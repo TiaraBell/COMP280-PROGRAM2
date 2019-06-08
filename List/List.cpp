@@ -10,17 +10,15 @@
 using namespace std;
 
 List::List() {
-
+    first = NULL;
 }
 
 bool List::Empty() {
-    //    if (N = 0) {
-    //        return true;
-    //    }
-    //    return false;
+    return false;
 }
 
 void List::InsertAtEnd(ElementType x) {
+    cout << x << endl;
     node* newptr = new node;
     newptr->data = x;
     newptr->next = NULL;
@@ -30,8 +28,7 @@ void List::InsertAtEnd(ElementType x) {
     else if (x < first->data) {
         newptr->next = first;
         first = newptr;
-    }
-    else {
+    } else {
         node * p = first;
         node * q = NULL;
         while ((p != NULL) && (p->data < x)) {
@@ -46,11 +43,16 @@ void List::InsertAtEnd(ElementType x) {
 }
 
 void List::Delete(ElementType x) {
-    
+
 }
 
 void List::Display() {
-    
+    struct node *temp;
+    temp = first;
+    while (temp != NULL) {
+        cout << temp->data << ", ";
+        temp = temp->next;
+    }
 }
 
 int List::Sum() {

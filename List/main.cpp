@@ -10,7 +10,7 @@
  *
  * Created on June 2, 2019, 4:32 PM
  */
-
+//Linked List Program 2
 #include <cstdlib>
 
 #include <iostream>
@@ -42,6 +42,7 @@ int main(int argc, char** argv) {
             case '1':
             {
                 cout << "Please enter the value you want to add: ";
+                cin >> value;
                 L.InsertAtEnd(value);
 
             }
