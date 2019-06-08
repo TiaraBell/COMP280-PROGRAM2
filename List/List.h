@@ -32,5 +32,6 @@ class List
 
  private:
 	node * first; //pointer to first node
+        int count; //keeps count of nodes in the list
 };
 

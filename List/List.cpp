@@ -11,6 +11,7 @@ using namespace std;
 
 List::List() {
     first = NULL;
+    count = 0;
 }
 
 bool List::Empty() {
@@ -23,15 +24,12 @@ bool List::Empty() {
 
 void List::InsertAtEnd(ElementType x) {
     cout << x << endl;
-    node* newptr = new node;
-    newptr->data = x;
-    newptr->next = NULL;
+    node* temp = new node;
+    temp->data = x;
+    temp->next = NULL;
 
     if (first == NULL) {
-        first = newptr;
-//    } else if (x < first->data) {
-//        newptr->next = first;
-//        first = newptr;
+        first = temp;
     } else {
         node * p = first;
         node * q = NULL;
@@ -39,10 +37,10 @@ void List::InsertAtEnd(ElementType x) {
             q = p;
             p = p->next;
         }
-        newptr->next = p;
-        q->next = newptr;
+        temp->next = p;
+        q->next = temp;
     }
-
+    count++;
     cout << "Value added";
 }
 
@@ -55,22 +53,26 @@ void List::Display() {
         //Empty();
     } else {
         cout << "Here are the values in your list: ";
-        struct node *temp;
-        temp = first;
-        while (temp != NULL) {
-            cout << temp->data << ", ";
-            temp = temp->next;
+        node *current = first;
+        while (current != NULL) {
+            cout << current->data << ", ";
+            current = current->next;
         }
     }
 }
 
 int List::Sum() {
     int sum = 0;
+    node *current = first;
+    while (current != NULL) {
+        sum += current->data;
+        current = current->next;
+    }
     return sum;
 }
 
 int List::Average() {
-    return 0;
+    return (Sum() / count);
 }
 
 
