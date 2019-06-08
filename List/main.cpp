@@ -49,11 +49,14 @@ int main(int argc, char** argv) {
                 break;
             case '2':
             {
-                cout << "Please enter the value you want to remove: ";
-                cin >> value;
-                cout << value;
-                L.Delete(value);
+                if (L.Empty() == true) {
+                    cout << "The list is empty. There is nothing to delete.";
+                } else {
+                    cout << "Please enter the value you want to remove: ";
+                    cin >> value;
+                    L.Delete(value);
 
+                }
             }
                 break;
             case '3':

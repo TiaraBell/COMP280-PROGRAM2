@@ -16,7 +16,6 @@ List::List() {
 
 bool List::Empty() {
     if (first == NULL) {
-        cout << "The list is empty. Please add values.";
         return true;
     }
     return false;
@@ -45,12 +44,32 @@ void List::InsertAtEnd(ElementType x) {
 }
 
 void List::Delete(ElementType x) {
-
+    cout << x << endl;
+    if (first->data == x) {
+        node *temp = first;
+        first = first->next;
+        delete temp;
+        count--;
+    } else {
+        node *prev = first;
+        node *current = prev->next;
+        while ((current != NULL) && (current->data != x)) {
+            current = current->next;
+            prev = prev->next;
+        }
+        if (current != NULL) {
+            prev->next = current->next;
+            delete current;
+            count--;
+        } else {
+            cout << "Value not found.";
+        }
+    }
 }
 
 void List::Display() {
     if (Empty() == true) {
-        //Empty();
+        cout << "The list is empty. There is nothing to display.";
     } else {
         cout << "Here are the values in your list: ";
         node *current = first;
